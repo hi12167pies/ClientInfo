@@ -5,6 +5,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import java.util.Map;
+import java.util.Set;
+
 public class LabymodAddonInfoEvent extends Event {
     private static final HandlerList handlers = new HandlerList();
 
@@ -31,5 +34,8 @@ public class LabymodAddonInfoEvent extends Event {
 
     public ClientInfoPlayer getInfoPlayer() {
         return infoPlayer;
+    }
+    public Set<String> getAddons() {
+        return this.getInfoPlayer().getLabymodAddons();
     }
 }

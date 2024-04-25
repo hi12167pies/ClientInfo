@@ -39,7 +39,10 @@ public class ClientInfoCommand implements CommandExecutor {
         sender.sendMessage("§f" + target.getDisplayName() + "§a's client info:");
         sender.sendMessage("§aClient§7: " + infoPlayer.clientName);
         sender.sendMessage("§aPing§7: " + infoPlayer.getPing());
-        sender.sendMessage("§aIP Address§7: " + infoPlayer.getIpAddress());
+
+        if (sender.hasPermission("clientinfo.viewip")) {
+            sender.sendMessage("§aIP Address§7: " + infoPlayer.getIpAddress());
+        }
 
         if (infoPlayer.fmlMods.size() != 0) {
             sender.sendMessage("§aForge Mods§7 (" + infoPlayer.fmlMods.size() + "): ");

@@ -1,8 +1,8 @@
 package cf.pies.ClientInfo.listeners;
 
 import cf.pies.ClientInfo.ClientInfo;
-import cf.pies.ClientInfo.data.InfoPlayer;
 import cf.pies.ClientInfo.PacketHandler;
+import cf.pies.ClientInfo.data.InfoPlayer;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;

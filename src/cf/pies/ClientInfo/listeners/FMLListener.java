@@ -2,7 +2,6 @@ package cf.pies.ClientInfo.listeners;
 
 import cf.pies.ClientInfo.ClientInfo;
 import cf.pies.ClientInfo.api.Events.ForgeModInfoEvent;
-import cf.pies.ClientInfo.api.Events.LabymodAddonInfoEvent;
 import cf.pies.ClientInfo.data.InfoPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -11,7 +10,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Map;
 
 public class FMLListener implements Listener, PluginMessageListener {
     private final ClientInfo plugin;

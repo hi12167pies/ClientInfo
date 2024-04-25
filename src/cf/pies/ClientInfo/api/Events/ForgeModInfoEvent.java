@@ -5,13 +5,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import java.util.Map;
+
 public class ForgeModInfoEvent extends Event {
     private static final HandlerList handlers = new HandlerList();
 
     public HandlerList getHandlers() {
         return handlers;
     }
-
     public static HandlerList getHandlerList() {
         return handlers;
     }
@@ -31,5 +32,9 @@ public class ForgeModInfoEvent extends Event {
 
     public ClientInfoPlayer getInfoPlayer() {
         return infoPlayer;
+    }
+
+    public Map<String, String> getMods() {
+        return this.getInfoPlayer().getFMLMods();
     }
 }

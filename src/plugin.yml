@@ -11,3 +11,7 @@ commands:
     permission: clientinfo.clientinfo
     aliases:
       - ci
+
+permissions:
+  clientinfo.viewip:
+    description: If a player has this permission it will show the IP Address in /clientinfo

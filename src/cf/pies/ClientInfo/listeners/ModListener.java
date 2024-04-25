@@ -42,7 +42,7 @@ public class ModListener implements Listener {
         }
     }
 
-    public void kick(Player player, String mod) {
+    private void kick(Player player, String mod) {
         player.kickPlayer(
                 ChatColor.translateAlternateColorCodes(
                         '&', plugin.getConfig().getString("blacklist.kick_message")
