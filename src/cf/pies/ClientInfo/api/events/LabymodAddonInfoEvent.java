@@ -1,11 +1,10 @@
-package cf.pies.ClientInfo.api.Events;
+package cf.pies.ClientInfo.api.events;
 
 import cf.pies.ClientInfo.api.ClientInfoPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-import java.util.Map;
 import java.util.Set;
 
 public class LabymodAddonInfoEvent extends Event {

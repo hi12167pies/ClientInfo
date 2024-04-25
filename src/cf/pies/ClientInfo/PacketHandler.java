@@ -1,6 +1,6 @@
 package cf.pies.ClientInfo;
 
-import cf.pies.ClientInfo.api.Events.LabymodAddonInfoEvent;
+import cf.pies.ClientInfo.api.events.LabymodAddonInfoEvent;
 import cf.pies.ClientInfo.data.InfoPlayer;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;

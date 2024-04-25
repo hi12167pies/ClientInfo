@@ -1,7 +1,7 @@
 package cf.pies.ClientInfo.listeners;
 
 import cf.pies.ClientInfo.ClientInfo;
-import cf.pies.ClientInfo.api.Events.ForgeModInfoEvent;
+import cf.pies.ClientInfo.api.events.ForgeModInfoEvent;
 import cf.pies.ClientInfo.data.InfoPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

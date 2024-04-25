@@ -1,8 +1,8 @@
 package cf.pies.ClientInfo.listeners;
 
 import cf.pies.ClientInfo.ClientInfo;
-import cf.pies.ClientInfo.api.Events.ForgeModInfoEvent;
-import cf.pies.ClientInfo.api.Events.LabymodAddonInfoEvent;
+import cf.pies.ClientInfo.api.events.ForgeModInfoEvent;
+import cf.pies.ClientInfo.api.events.LabymodAddonInfoEvent;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

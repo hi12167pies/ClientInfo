@@ -1,4 +1,4 @@
-package cf.pies.ClientInfo.api.Events;
+package cf.pies.ClientInfo.api.events;
 
 import cf.pies.ClientInfo.api.ClientInfoPlayer;
 import org.bukkit.entity.Player;
