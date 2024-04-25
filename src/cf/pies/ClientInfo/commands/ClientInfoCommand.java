@@ -38,14 +38,24 @@ public class ClientInfoCommand implements CommandExecutor {
         sender.sendMessage("§7§m------------------------------");
         sender.sendMessage("§f" + target.getDisplayName() + "§a's client info:");
         sender.sendMessage("§aClient§7: " + infoPlayer.clientName);
-        if (infoPlayer.isModSupported) {
-            sender.sendMessage("§aMods§7 (" + infoPlayer.mods.size() + "): ");
-            for (String mod : infoPlayer.mods) {
+        sender.sendMessage("§aPing§7: " + infoPlayer.getPing());
+        sender.sendMessage("§aIP Address§7: " + infoPlayer.getIpAddress());
+
+        if (infoPlayer.fmlMods.size() != 0) {
+            sender.sendMessage("§aForge Mods§7 (" + infoPlayer.fmlMods.size() + "): ");
+            for (String mod : infoPlayer.fmlMods.keySet()) {
+                String version = infoPlayer.fmlMods.get(mod);
+                sender.sendMessage("§7- §f" + mod + " §7(v" + version + ")");
+            }
+        }
+
+        if (infoPlayer.labymodAddons.size() != 0) {
+            sender.sendMessage("§aLabymod Addons§7 (" + infoPlayer.labymodAddons.size() + "): ");
+            for (String mod : infoPlayer.labymodAddons) {
                 sender.sendMessage("§7- §f" + mod);
             }
-        } else {
-            sender.sendMessage("§aMods§7: Player is not on client with mods.");
         }
+
         sender.sendMessage("§7§m------------------------------");
 
         return true;

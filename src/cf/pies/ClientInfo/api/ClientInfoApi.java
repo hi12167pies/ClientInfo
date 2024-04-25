@@ -10,7 +10,7 @@ public class ClientInfoApi {
         this.plugin = plugin;
     }
 
-    public InfoPlayer getInfoPlayer(Player player) {
+    public ClientInfoPlayer getInfoPlayer(Player player) {
         return plugin.getInfoPlayer(player);
     }
 }

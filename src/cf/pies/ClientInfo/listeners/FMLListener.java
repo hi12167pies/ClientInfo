@@ -1,15 +1,17 @@
 package cf.pies.ClientInfo.listeners;
 
 import cf.pies.ClientInfo.ClientInfo;
+import cf.pies.ClientInfo.api.Events.ForgeModInfoEvent;
+import cf.pies.ClientInfo.api.Events.LabymodAddonInfoEvent;
+import cf.pies.ClientInfo.data.InfoPlayer;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class FMLListener implements Listener, PluginMessageListener {
     private final ClientInfo plugin;
@@ -21,7 +23,6 @@ public class FMLListener implements Listener, PluginMessageListener {
     public void event(PlayerRegisterChannelEvent event) {
         Player player = event.getPlayer();
         if (event.getChannel().equals("FML|HS")) {
-            plugin.getInfoPlayer(player).isModSupported = true;
             player.sendPluginMessage(plugin, "FML|HS", new byte[] {-2, 0});
             player.sendPluginMessage(plugin, "FML|HS", new byte[] {0, 2, 0, 0, 0, 0});
             player.sendPluginMessage(plugin, "FML|HS", new byte[] {2, 0, 0, 0, 0});
@@ -31,19 +32,26 @@ public class FMLListener implements Listener, PluginMessageListener {
     @Override
     public void onPluginMessageReceived(String channel, Player player, byte[] bytes) {
         // thank you speedcubing, i still have zero idea what this does though
+
         if (bytes.length <= 2) return;
-        List<String> mods = new ArrayList<>();
+
+        InfoPlayer info = plugin.getInfoPlayer(player);
+
+        // Name, Version
+        Map<String, String> mods = info.fmlMods;
         boolean store = false;
-        String name = null, str;
+
+        String modName = null, version;
+
         for (int i = 2; i < bytes.length; store = !store) {
             int end = i + bytes[i] + 1;
-            str = new String(Arrays.copyOfRange(bytes, i + 1, end));
+            version = new String(Arrays.copyOfRange(bytes, i + 1, end));
             if (store) {
-                String modFullName = name + " " + str;
-                mods.add(modFullName);
-            } else name = str;
+                mods.put(modName, version);
+            } else modName = version;
             i = end;
         }
-        plugin.getInfoPlayer(player).mods = mods;
+
+        Bukkit.getServer().getPluginManager().callEvent(new ForgeModInfoEvent(player, info));
     }
 }

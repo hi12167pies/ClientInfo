@@ -4,6 +4,7 @@ import cf.pies.ClientInfo.api.ClientInfoApi;
 import cf.pies.ClientInfo.commands.ClientInfoCommand;
 import cf.pies.ClientInfo.data.InfoPlayer;
 import cf.pies.ClientInfo.listeners.FMLListener;
+import cf.pies.ClientInfo.listeners.ModListener;
 import cf.pies.ClientInfo.listeners.PlayerJoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -25,6 +26,8 @@ public class ClientInfo extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        this.saveDefaultConfig();
+
         api = new ClientInfoApi(this);
 
         FMLListener fmlListener = new FMLListener(this);
@@ -33,6 +36,7 @@ public class ClientInfo extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(fmlListener, this);
 
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new ModListener(this), this);
 
         this.getCommand("clientinfo").setExecutor(new ClientInfoCommand(this));
     }

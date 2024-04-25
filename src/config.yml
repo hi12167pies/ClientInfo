@@ -1,0 +1,9 @@
+blacklist:
+  # You can use %mod% to get the mod name
+  kick_message: "&cYou are using a mod that is not allowed on this server. (%mod%)"
+  fml:
+    # List of forge mods that will kick
+    - "SomeForgeMod"
+  labymod:
+    # List of labymod addons that will kick
+    - "SomeLabymodAddon"
