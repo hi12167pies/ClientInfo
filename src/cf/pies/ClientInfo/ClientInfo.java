@@ -31,6 +31,8 @@ public class ClientInfo extends JavaPlugin {
         api = new ClientInfoApi(this);
 
         FMLListener fmlListener = new FMLListener(this);
+        Bukkit.getMessenger().registerIncomingPluginChannel(this, "FML|HS", fmlListener);
+        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "FML|HS");
         Bukkit.getPluginManager().registerEvents(fmlListener, this);
 
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
