@@ -1,0 +1,13 @@
+name: ClientInfo
+version: 1.0.0
+api-version: 1.8
+main: cf.pies.ClientInfo.ClientInfo
+author: hi12167pies
+website: pies.cf
+commands:
+  clientinfo:
+    usage: /clientinfo <player>
+    description: View information about a player.
+    permission: clientinfo.clientinfo
+    aliases:
+      - ci
