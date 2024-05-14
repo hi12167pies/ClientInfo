@@ -40,11 +40,7 @@ public class ClientInfoCommand implements CommandExecutor {
         sender.sendMessage("§aClient§7: " + infoPlayer.clientName);
         sender.sendMessage("§aPing§7: " + infoPlayer.getPing());
 
-        if (sender.hasPermission("clientinfo.viewip")) {
-            sender.sendMessage("§aIP Address§7: " + infoPlayer.getIpAddress());
-        }
-
-        if (infoPlayer.fmlMods.size() != 0) {
+        if (!infoPlayer.fmlMods.isEmpty()) {
             sender.sendMessage("§aForge Mods§7 (" + infoPlayer.fmlMods.size() + "): ");
             for (String mod : infoPlayer.fmlMods.keySet()) {
                 String version = infoPlayer.fmlMods.get(mod);
@@ -52,7 +48,7 @@ public class ClientInfoCommand implements CommandExecutor {
             }
         }
 
-        if (infoPlayer.labymodAddons.size() != 0) {
+        if (!infoPlayer.labymodAddons.isEmpty()) {
             sender.sendMessage("§aLabymod Addons§7 (" + infoPlayer.labymodAddons.size() + "): ");
             for (String mod : infoPlayer.labymodAddons) {
                 sender.sendMessage("§7- §f" + mod);
